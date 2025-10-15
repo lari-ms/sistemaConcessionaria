@@ -10,4 +10,10 @@ public class Cliente extends Pessoa {
         return email;
     }
 
+    //colcoar setter?
+    //////
+    
+    public String toString(){
+        return super.toString() + " - " + this.email;
+    }
 }

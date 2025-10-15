@@ -9,6 +9,8 @@ public class Pessoa {
         this.nasc = new Data(dia,mes,ano);
     }
 
+    //getters
+
     public String getNome() {
         return nome;
     }
@@ -20,5 +22,23 @@ public class Pessoa {
     public Data getNasc() {
         return nasc;
     }
+    
+    public int getIdade(Data hoje) {
+        int idade = hoje.getAno() - this.nasc.getAno();
+        
+        if (hoje.getMes() < this.nasc.getMes() || (hoje.getMes() == this.nasc.getMes() && hoje.getDia() < this.nasc.getDia())) {
+            idade--;
+        }
+        
+        return idade;
+    }
+    ////////
+    
+    //colocar setters tb?
+    ////////
 
+    
+    public String toString() {
+            return this.nome + " - " +"CPF: " + this.cpf;
+    }
 }

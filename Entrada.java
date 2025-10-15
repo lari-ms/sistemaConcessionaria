@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Classe com as rotinas de entrada e saída do projeto
- * @author Hilario Seibel Junior e <seu nome aqui>
+ * @author Hilario Seibel Junior, Larissa Santos e Lucas Silva
  */
 public class Entrada {
     public Scanner input;
