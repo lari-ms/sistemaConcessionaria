@@ -13,7 +13,7 @@ public class Venda {
         this.chassi = chassi;
     }
 
-    public Venda() {
+    public Venda() { //precisa ter esse construtor tb?
         this.veiculo = null;
         this.cliente = null;
         this.desconto = 0.0;
@@ -37,6 +37,10 @@ public class Venda {
     
     public double getDesconto() {
         return this.desconto;
+    }
+
+    public Veiculo getVeiculo() { //nao tenho certeza se é necessario, mas acho q s ?
+        return this.veiculo;
     }
 
     public String toString() {

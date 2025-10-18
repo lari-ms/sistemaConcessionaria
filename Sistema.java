@@ -198,7 +198,7 @@ public class Sistema {
 * HISTÓRICOS - HISTÓRICOS - HISTÓRICOS - HISTÓRICOS *
  ***************************************************/
 
-    public void historicoMensal (int mes, int ano) {
+    public void relatorio (int mes, int ano) {//historicoMensal (int mes, int ano) {
         System.out.println("*** RELATÓRIO DE VENDAS MENSAL DE " + mes + "/" + ano + "***");
         double totalVendas = 0.0;
         for (Vendedor v : this.vendedores) {
@@ -217,7 +217,7 @@ public class Sistema {
         System.out.println("Total: R$" + String.format("%.2f", totalVendas));
     }
     
-    public void historicoAnual (int ano) {
+    public void relatorio (int ano) {//historicoAnual (int ano) {
         System.out.println("*** RELATÓRIO DE VENDAS ANUAL DE " + ano + " ***");
         double totalVendas = 0.0;
         for (Vendedor v : this.vendedores) {
@@ -236,7 +236,7 @@ public class Sistema {
         System.out.println("Total: R$" + String.format("%.2f", totalVendas));
     }
 
-    public void historicoVendedor (Vendedor vendedor) {
+    public void relatorio (Vendedor vendedor) {//historicoVendedor (Vendedor vendedor) {
         System.out.println("*** RELATÓRIO DE VENDAS DO VENDEDOR ***");
         System.out.println("Vendas do vendedor " + vendedor.getNome() + " :");
         double totalVendas = 0.0;
