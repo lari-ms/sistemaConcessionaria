@@ -10,7 +10,7 @@ public class Cliente extends Pessoa {
         return email;
     }
 
-    //colcoar setter?
+    //colcoar setter? R.: não
     //////
     
     public String toString(){

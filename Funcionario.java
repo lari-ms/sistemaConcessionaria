@@ -10,7 +10,7 @@ public class Funcionario extends Pessoa {
         return this.salario;
     }
     
-    // public String toString(){
-    //     return 
-    // }
+    public String toString() { // Isso é desnecessário?
+        return super.toString();
+    }
 }

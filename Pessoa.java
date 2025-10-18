@@ -10,15 +10,12 @@ public class Pessoa {
     }
 
     //getters
-
     public String getNome() {
         return nome;
     }
-
     public String getCpf() {
         return cpf;
     }
-
     public Data getNasc() {
         return nasc;
     }

@@ -7,16 +7,50 @@ public class Main {
 
         int op = io.menu();
 
+        /*
+         * Escolha uma opção:
+1) Cadastrar Cliente
+2) Cadastrar Vendedor
+3) Cadastrar Gerente
+4) Cadastrar Veículo
+5) Cadastrar Venda
+6) Relatório de Vendas Mensal
+7) Relatório de Vendas Anual
+8) Relatório de Vendas do Vendedor:
+0) Sair
+         */
+
         while (op != 0) {
             switch(op) {
                 case 1:
-                    io.cadCliente(s); break;
-                //case 2:
-                    //io.cadVendedor(s); break;
-                //case 3: ...
-            }
+                    io.cadCliente(s, io, op);
+                    break;
+                case 2:
+                    io.cadVendedor(s, io, op);
+                    break;
+                case 3:
+                    io.redirect(s, io, op); // olha, eu fiz o que eu pude, parei aqui. Um beijo, não sei quando volto :)
+                    break;
+                case 4:
+                    io.cadVeiculo(s, io, op);
+                    break;
+                case 5:
+                    io.cadVenda(s, io, op);
+                    break;
+                case 6:
+                    io.relatorioMensal(s);
+                    break;
+                case 7:
+                    io.relatorioAnual(s);
+                    break;
+                case 8:
+                    io.relatorio(s);
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
 
             op = io.menu();
+            }
         }
     }
 }
