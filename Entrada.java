@@ -76,13 +76,11 @@ public class Entrada {
                 "1) Cadastrar Cliente\n" +
                 "2) Cadastrar Vendedor\n" +
                 "3) Cadastrar Gerente\n" +
-                "4) Cadastrar Veículo Elétrico\n" +
-                "6) Cadastrar Veículo A Combustão\n" +
-                "7) Cadastrar Veículo Híbrido\n" +
-                "8) Cadastrar Venda\n" +
-                "9) Histórico de Vendas Mensal\n" +
-                "10) Histórico de Vendas Anual\n" +
-                "11) Histórico de Vendas do Vendedor:\n" +
+                "4) Cadastrar Veículo\n" +
+                "5) Cadastrar Venda\n" +
+                "6) Histórico de Vendas Mensal\n" +
+                "7) Histórico de Vendas Anual\n" +
+                "8) Histórico de Vendas do Vendedor:\n" +
                 "0) Sair\n";
 
         int op = this.lerInteiro(msg);
