@@ -161,6 +161,7 @@ public class Sistema {
     }
 
     public Veiculo identificarVeiculo(int indice) {
+        indice -=1;
         if (indice >= 0 && indice < this.veiculos.size()) {
             return this.veiculos.get(indice);
         }

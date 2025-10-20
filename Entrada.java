@@ -107,14 +107,27 @@ public class Entrada {
 ***************************************************/
 
     public void cadCliente(Sistema s) {
-        s.listarClientes();
+        //s.listarClientes();
 
         String nome = this.lerLinha("Digite o nome do cliente: ");
+        System.out.println("→ " + nome);
         String cpf = this.lerLinha("Digite o cpf do cliente: ");
+        System.out.println("→ " + cpf);
         int dia = this.lerInteiro("Digite o dia do nascimento do cliente: ");
+        System.out.println("→ " + dia);
         int mes = this.lerInteiro("Digite o mês do nascimento do cliente: ");
+        System.out.println("→ " + mes);
         int ano = this.lerInteiro("Digite o ano do nascimento do cliente: ");
+        System.out.println("→ " + ano);
         String email = this.lerLinha("Digite o email do cliente: ");
+        System.out.println("→ " + email);
+
+        // String nome = this.lerLinha("Digite o nome do cliente: ");
+        // String cpf = this.lerLinha("Digite o cpf do cliente: ");
+        // int dia = this.lerInteiro("Digite o dia do nascimento do cliente: ");
+        // int mes = this.lerInteiro("Digite o mês do nascimento do cliente: ");
+        // int ano = this.lerInteiro("Digite o ano do nascimento do cliente: ");
+        // String email = this.lerLinha("Digite o email do cliente: ");
 
         if (s.localizarCliente(cpf) == null) { // Garantindo que o não CPF esteja duplicado.
             Cliente c = new Cliente(nome, cpf, dia, mes, ano, email);
@@ -126,20 +139,27 @@ public class Entrada {
     }
 
     public void cadVendedor (Sistema s) {
-        s.listarVendedores();
+        //s.listarVendedores();
 
         String nome = this.lerLinha("Digite o nome do vendedor: ");
+        System.out.println("→ " + nome);
         String cpf = this.lerLinha("Digite o cpf do vendedor: ");
+        System.out.println("→ " + cpf);
         int dia = this.lerInteiro("Digite o dia do nascimento do vendedor: ");
+        System.out.println("→ " + dia);
         int mes = this.lerInteiro("Digite o mês do nascimento do vendedor: ");
+        System.out.println("→ " + mes);
         int ano = this.lerInteiro("Digite o ano do nascimento do vendedor: ");
+        System.out.println("→ " + ano);
         int salario = this.lerInteiro("Digite o salário mensal fixo do vendedor: ");
-        double comissao = this.lerInteiro("Digite o percentual de comissão deste vendedor: ");
-
+        System.out.println("→ " + salario);
+        double comissao = this.lerDouble("Digite o percentual de comissão deste vendedor: ");
+        System.out.println("→ " + comissao);
 
         if (s.localizarVendedor(cpf) == null) { // Garantindo que o não CPF esteja duplicado.
             Vendedor c = new Vendedor(nome, cpf, dia, mes, ano, salario, comissao); // CHECAAAARRRR
             s.adicionar(c); // CHECARRRRR
+            s.listarVendedores(); System.out.println("okok add :D");
         }
         else {
             System.out.println("Erro: CPF duplicado. Vendedor não adicionado.");
@@ -150,12 +170,19 @@ public class Entrada {
         s.listarGerentes();
 
         String nome = this.lerLinha("Digite o nome do gerente: ");
+        System.out.println("→ " + nome);
         String cpf = this.lerLinha("Digite o cpf do gerente: ");
+        System.out.println("→ " + cpf);
         int dia = this.lerInteiro("Digite o dia do nascimento do gerente: ");
+        System.out.println("→ " + dia);
         int mes = this.lerInteiro("Digite o mês do nascimento do gerente: ");
+        System.out.println("→ " + mes);
         int ano = this.lerInteiro("Digite o ano do nascimento do gerente: ");
+        System.out.println("→ " + ano);
         int salario = this.lerInteiro("Digite o salário mensal fixo do gerente: ");
+        System.out.println("→ " + salario);
         String senha = this.lerLinha("Digite a senha do gerente: ");
+        System.out.println("→ " + senha);
 
         if (s.localizarGerente(cpf) == null) { // String nome, String cpf, int dia, int mes, int ano, int salario, String senha
             Gerente c = new Gerente(nome, cpf, dia, mes, ano, salario, senha); // CHECAAAARRRR
@@ -170,36 +197,52 @@ public class Entrada {
         s.listarVeiculos();
 
         String marca = this.lerLinha("Digite a marca do veículo: ");
+        System.out.println("→ " + marca);
         String modelo = this.lerLinha("Digite o modelo do veículo: ");
+        System.out.println("→ " + modelo);
         int anoFab = this.lerInteiro("Digite o ano de fabricação do veículo: ");
+        System.out.println("→ " + anoFab);
         int mesFab = this.lerInteiro("Digite o mês de fabricação do veículo: ");
+        System.out.println("→ " + mesFab);
         int anoMod = this.lerInteiro("Digite o ano do modelo do veículo: ");
+        System.out.println("→ " + anoMod);
         int valor = this.lerInteiro("Digite o valor do veículo: ");
+        System.out.println("→ " + valor);
         int tipo = this.lerInteiro("Escolha o tipo do veículo: \n1) Elétrico \n2) Combustão \n3) Híbrido:");
+        System.out.println("→ " + tipo);
         while (!(tipo == 0 || tipo == 1 || tipo == 2 || tipo == 3)) {
             System.out.println("Erro: Tipo inválido. Tente novamente (para sair, digite 0).");
             tipo = this.lerInteiro("Escolha o tipo do veículo: \n1) Elétrico \n2) Combustão \n3) Híbrido:");
+            System.out.println("→ " + tipo);
         }
         if (tipo == 0) {
             menu();
         }
         if (tipo == 1) {
             int autonBateria = this.lerInteiro("Digite a autonomia da bateria (em km): ");
+            System.out.println("→ " + autonBateria);
             int capBateria = this.lerInteiro("Digite a capacidade da Bateria (em kwH): ");
+            System.out.println("→ " + capBateria);
             Eletrico c = new Eletrico(marca, modelo, anoFab, mesFab, anoMod, valor, autonBateria, capBateria); // CHECAAAARRRR
             s.adicionar(c);
         }
         if (tipo == 2) {
             int autonMotor = this.lerInteiro("Digite a autonomia do motor (em km): ");
+            System.out.println("→ " + autonMotor);
             int capMotor = this.lerInteiro("Digite a capacidade do motor (em L): ");
+            System.out.println("→ " + capMotor);
             Combustao c = new Combustao(marca, modelo, anoFab, mesFab, anoMod, valor, autonMotor, capMotor); // CHECAAAARRRR
             s.adicionar(c);
         }
         if (tipo == 3) {
             int autonMotor = this.lerInteiro("Digite a autonomia do motor (em km): ");
+            System.out.println("→ " + autonMotor);
             int capMotor = this.lerInteiro("Digite a capacidade do motor (em L): ");
+            System.out.println("→ " + capMotor);
             int autonBateria = this.lerInteiro("Digite a autonomia da bateria (em km): ");
+            System.out.println("→ " + autonBateria);
             int capBateria = this.lerInteiro("Digite a capacidade da Bateria (em kwH): ");
+            System.out.println("→ " + capBateria);
             Hibrido c = new Hibrido(marca, modelo, anoFab, mesFab, anoMod, valor, autonMotor, capMotor, autonBateria, capBateria); // CHECAAAARRRR
             s.adicionar(c);
         }
@@ -208,14 +251,17 @@ public class Entrada {
     public void cadVenda (Sistema s) {
         s.listarVendedores();
         String cpfVendedor = this.lerLinha("Digite o CPF do vendedor: ");
+        System.out.println("→ " + cpfVendedor);
         
         s.listarVeiculos();
         int numVeiculo = this.lerInteiro("Escolha um veículo pelo número: ");
+        System.out.println("→ " + numVeiculo);
         String marca = s.identificarVeiculo(numVeiculo).getMarca();
         String modelo = s.identificarVeiculo(numVeiculo).getModelo();
 
         s.listarClientes();
         String cpfCliente = this.lerLinha("Digite o CPF do cliente: ");
+        System.out.println("→ " + cpfCliente);
 
         Vendedor v = s.localizarVendedor(cpfVendedor);
         Veiculo veic = s.localizarVeiculo(marca, modelo);
@@ -234,12 +280,18 @@ public class Entrada {
             return;
         }
         // Veiculo veiculo, Cliente cliente, double desconto, Data d, String chassi
-        Venda venda = new Venda(veic, c, this.lerDouble("Digite o desconto (em R$): "), new Data(
-                this.lerInteiro("Digite o dia da venda: "),
-                this.lerInteiro("Digite o mês da venda: "),
-                this.lerInteiro("Digite o ano da venda: ")),
-            this.lerLinha("Digite o chassi do veículo: ")
-        ); // desconto 0.0 e chassi vazio
+        double desconto = this.lerDouble("Digite o desconto (em R$): ");
+        System.out.println("→ " + desconto);
+        int diaVenda = this.lerInteiro("Digite o dia da venda: ");
+        System.out.println("→ " + diaVenda);
+        int mesVenda = this.lerInteiro("Digite o mês da venda: ");
+        System.out.println("→ " + mesVenda);
+        int anoVenda = this.lerInteiro("Digite o ano da venda: ");
+        System.out.println("→ " + anoVenda);
+        String chassi = this.lerLinha("Digite o chassi do veículo: ");
+        System.out.println("→ " + chassi);
+        
+        Venda venda = new Venda(veic, c, desconto, new Data(diaVenda, mesVenda, anoVenda), chassi);
         s.atribuirVendaVendedor(venda, v);
     }
     
@@ -253,6 +305,7 @@ public class Entrada {
                            "2) Relatório Anual\n" +
                            "3) Relatório de Vendedor\n");
         int tipo = this.lerInteiro("Digite a opção desejada: ");
+        System.out.println("→ " + tipo);
 
         while (!(tipo == 1 || tipo == 2 || tipo == 3)) {
             System.out.println("Erro: Tipo inválido. Tente novamente.");
@@ -260,6 +313,7 @@ public class Entrada {
                                    "1) Relatório Mensal\n" +
                                    "2) Relatório Anual\n" +
                                    "3) Relatório de Vendedor\n");
+            System.out.println("→ " + tipo);
         }
 
         if (tipo == 1) {
@@ -275,19 +329,23 @@ public class Entrada {
 
     public void relatorioMensal (Sistema s) {
         int mes = this.lerInteiro("Digite o mês desejado: ");
+        System.out.println("→ " + mes);
         int ano = this.lerInteiro("Digite o ano desejado: ");
+        System.out.println("→ " + ano);
 
-        s.historicoMensal(mes, ano);
+        s.relatorio(mes, ano);
     }
 
     public void relatorioAnual (Sistema s) {
         int ano = this.lerInteiro("Digite o ano desejado: ");
+        System.out.println("→ " + ano);
 
-        s.historicoAnual(ano);
+        s.relatorio(ano);
     }
 
     public void relatorioVendedor (Sistema s) {
         String cpf = this.lerLinha("Digite o CPF do vendedor: ");
+        System.out.println("→ " + cpf);
 
         Vendedor v = s.localizarVendedor(cpf);
         if (v == null) {
@@ -295,7 +353,7 @@ public class Entrada {
             return;
         }
 
-        s.historicoVendedor(v);
+        s.relatorio(v);
     }
 
     public void opInvalida() {

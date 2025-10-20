@@ -22,20 +22,22 @@ public class Main {
 
         while (op != 0) {
             switch(op) {
+                case 0:
+                    break;
                 case 1:
-                    io.cadCliente(s, io, op);
+                    io.cadCliente(s);//, io, op);
                     break;
                 case 2:
-                    io.cadVendedor(s, io, op);
+                    io.cadVendedor(s);//, io, op);
                     break;
                 case 3:
-                    io.redirect(s, io, op); // olha, eu fiz o que eu pude, parei aqui. Um beijo, não sei quando volto :)
+                    io.cadGerente(s);//, io, op); // olha, eu fiz o que eu pude, parei aqui. Um beijo, não sei quando volto :)
                     break;
                 case 4:
-                    io.cadVeiculo(s, io, op);
+                    io.cadVeiculo(s);//, io, op);
                     break;
                 case 5:
-                    io.cadVenda(s, io, op);
+                    io.cadVenda(s);//, io, op);
                     break;
                 case 6:
                     io.relatorioMensal(s);
@@ -49,8 +51,10 @@ public class Main {
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
 
-            op = io.menu();
+            
             }
+            op = io.menu();
+            System.out.println("opcao escolhida: "+op);
         }
     }
 }
