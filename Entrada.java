@@ -151,8 +151,8 @@ public class Entrada {
         }
 
         if (s.localizarVendedor(cpf) == null) {
-            Vendedor c = new Vendedor(nome, cpf, dia, mes, ano, salario, comissao); // CHECAAAARRRR
-            s.adicionar(c); // CHECARRRRR
+            Vendedor c = new Vendedor(nome, cpf, dia, mes, ano, salario, comissao);
+            s.adicionar(c);
             //s.listarVendedores();
         }
         else {
@@ -223,7 +223,7 @@ public class Entrada {
             if (capBateria < 0){
                 System.out.println("Valor inválido. Veículo nao cadastrado");
             }
-            Eletrico c = new Eletrico(marca, modelo, anoFab, mesFab, anoMod, valor, autonBateria, capBateria); // CHECAAAARRRR
+            Eletrico c = new Eletrico(marca, modelo, anoFab, mesFab, anoMod, valor, autonBateria, capBateria);
             s.adicionar(c);
         }
         if (tipo == 2) {
@@ -235,7 +235,7 @@ public class Entrada {
             if (capMotor < 0){
                 System.out.println("Valor inválido. Veículo nao cadastrado");
             }
-            Combustao c = new Combustao(marca, modelo, anoFab, mesFab, anoMod, valor, autonMotor, capMotor); // CHECAAAARRRR
+            Combustao c = new Combustao(marca, modelo, anoFab, mesFab, anoMod, valor, autonMotor, capMotor);
             s.adicionar(c);
         }
         if (tipo == 3) {
@@ -255,7 +255,7 @@ public class Entrada {
             if (capBateria < 0){
                 System.out.println("Valor inválido. Veículo nao cadastrado");
             }
-            Hibrido c = new Hibrido(marca, modelo, anoFab, mesFab, anoMod, valor, autonMotor, capMotor, autonBateria, capBateria); // CHECAAAARRRR
+            Hibrido c = new Hibrido(marca, modelo, anoFab, mesFab, anoMod, valor, autonMotor, capMotor, autonBateria, capBateria);
             s.adicionar(c);
         }
     }
