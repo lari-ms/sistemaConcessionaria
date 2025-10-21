@@ -105,7 +105,7 @@ public class Entrada {
 ***************************************************/
 
     public void cadCliente(Sistema s) {
-        //s.listarClientes();
+        s.listarClientes();
 
         String nome = this.lerLinha("Digite o nome do cliente: ");
         System.out.println("=> " + nome);
@@ -120,13 +120,6 @@ public class Entrada {
         String email = this.lerLinha("Digite o email do cliente: ");
         System.out.println("=> " + email);
 
-        // String nome = this.lerLinha("Digite o nome do cliente: ");
-        // String cpf = this.lerLinha("Digite o cpf do cliente: ");
-        // int dia = this.lerInteiro("Digite o dia do nascimento do cliente: ");
-        // int mes = this.lerInteiro("Digite o mês do nascimento do cliente: ");
-        // int ano = this.lerInteiro("Digite o ano do nascimento do cliente: ");
-        // String email = this.lerLinha("Digite o email do cliente: ");
-
         if (s.localizarCliente(cpf) == null) { // Garantindo que o não CPF esteja duplicado.
             Cliente c = new Cliente(nome, cpf, dia, mes, ano, email);
             s.adicionar(c);
@@ -137,7 +130,7 @@ public class Entrada {
     }
 
     public void cadVendedor (Sistema s) {
-        //s.listarVendedores();
+        s.listarVendedores();
 
         String nome = this.lerLinha("Digite o nome do vendedor: ");
         System.out.println("=> " + nome);
@@ -182,7 +175,7 @@ public class Entrada {
         String senha = this.lerLinha("Digite a senha do gerente: ");
         System.out.println("=> " + senha);
 
-        if (s.localizarGerente(cpf) == null) { // String nome, String cpf, int dia, int mes, int ano, int salario, String senha
+        if (s.localizarGerente(cpf) == null) {
             Gerente c = new Gerente(nome, cpf, dia, mes, ano, salario, senha); // CHECAAAARRRR
             s.adicionar(c); // CHECARRRRR
         }
@@ -264,9 +257,6 @@ public class Entrada {
             return; // aqui nao sei se deveria encerrar a funcao ou pedir pra digitar de novo
         }
         Veiculo veic = s.identificarVeiculo(numVeiculo);
-        // String marca = s.identificarVeiculo(numVeiculo).getMarca();   ////PARECIA MEIO REDUNDANTE USAR OS DOIS,
-        // String modelo = s.identificarVeiculo(numVeiculo).getModelo(); ////TESTEI USAR SO O identificarVeiculo()
-        // Veiculo veic = s.localizarVeiculo(marca, modelo);             ////POR PARECER MAIS SIMPLES
         if (veic == null) {
             System.out.println("Erro: Veículo não encontrado. Venda não cadastrada.");
             return;
@@ -280,14 +270,8 @@ public class Entrada {
             System.out.println("Erro: Cliente não encontrado. Venda não cadastrada.");
             return;
         }
-
-        // Vendedor v = s.localizarVendedor(cpfVendedor);
-        // Veiculo veic = s.localizarVeiculo(marca, modelo);
-        //Cliente c = s.localizarCliente(cpfCliente);
         
-        
-        // Veiculo veiculo, Cliente cliente, double desconto, Data d, String chassi
-        double desconto = this.lerDouble("Digite o desconto (em R$): ");
+                double desconto = this.lerDouble("Digite o desconto (em R$): ");
         System.out.println("=> " + desconto);
         int diaVenda = this.lerInteiro("Digite o dia da venda: ");
         System.out.println("=> " + diaVenda);

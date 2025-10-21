@@ -13,6 +13,6 @@ public class Eletrico extends Veiculo {
     }
 
     public String toString() {
-        return super.toString() + " (Elétrico)"; //super.marca + super.modelo + super.anoMod + "/" + super.anoFab + " - Autonomia: " + this.autonomiaBat + ".0km (Elétrico)";
+        return super.toString() + " (Elétrico)";
     }
 }

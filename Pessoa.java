@@ -29,12 +29,7 @@ public class Pessoa {
         
         return idade;
     }
-    ////////
-    
-    //colocar setters tb?
-    ////////
-
-    
+        
     public String toString() {
             return this.nome + " - " +"CPF: " + this.cpf;
     }

@@ -9,9 +9,6 @@ public class Cliente extends Pessoa {
     public String getEmail() {
         return email;
     }
-
-    //colcoar setter? R.: não
-    //////
     
     public String toString(){
         return super.toString() + " - " + this.email;

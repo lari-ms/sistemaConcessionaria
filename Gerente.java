@@ -7,11 +7,6 @@ public class Gerente extends Funcionario{
     }
 
     public boolean validarAcesso (String senha) {
-        if (this.senha == senha) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return (this.senha.equals(senha));
     }
 }
