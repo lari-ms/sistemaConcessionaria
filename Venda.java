@@ -13,14 +13,6 @@ public class Venda {
         this.chassi = chassi;
     }
 
-    public Venda() { //precisa ter esse construtor tb?
-        this.veiculo = null;
-        this.cliente = null;
-        this.desconto = 0.0;
-        this.d = new Data(1, 1, 2000);
-        this.chassi = "";
-    }
-
     public Data getData() {
         return this.d;
     }
