@@ -46,7 +46,7 @@ public class Main {
                     io.relatorioAnual(s);
                     break;
                 case 8:
-                    io.relatorio(s);
+                    io.relatorioVendedor(s);
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
@@ -54,6 +54,7 @@ public class Main {
             
             }
             op = io.menu();
+            System.out.println(">>>");
             System.out.println("opcao escolhida: "+op);
         }
     }
