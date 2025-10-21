@@ -200,14 +200,14 @@ public class Sistema {
  ***************************************************/
 
     public void relatorio (int mes, int ano) {//historicoMensal (int mes, int ano) {
-        System.out.println("RELATÓRIO DE VENDAS MENSAL DE " + mes + "/" + ano);
+        System.out.println("RELATÓRIO DE VENDAS MENSAL DE " + mes + "/" + ano +":");
         double totalVendas = 0.0;
         for (Vendedor v : this.vendedores) {
             double comissaoVendedor = v.comissaoTotal(mes, ano);
             if (comissaoVendedor > 0) {
-                System.out.println("Vendedor: " + v.getNome() + " (Salário neste mês: R$" + v.getSalario(mes, ano) + ")");
                 for (Venda venda : v.getVendas()) {
                     if (venda.getData().getMes() == mes && venda.getData().getAno() == ano) {
+                        System.out.println("Vendedor: " + v.getNome() + " (Salário neste mês: R$" + v.getSalario(mes, ano) + ")");
                         System.out.println(venda);
                         System.out.println("***************************************");
                         totalVendas += venda.valor();
@@ -219,13 +219,13 @@ public class Sistema {
     }
     
     public void relatorio (int ano) {//historicoAnual (int ano) {
-        System.out.println("RELATÓRIO DE VENDAS ANUAL DE " + ano);
+        System.out.println("RELATÓRIO DE VENDAS ANUAL DE " + ano +":");
         double totalVendas = 0.0;
         for (Vendedor v : this.vendedores) {
             double comissaoVendedor = v.comissaoTotal(ano);
             if (comissaoVendedor > 0) {
-                System.out.println("Vendedor: " + v.getNome() + " (Salário neste ano: R$" + (v.salario * 12 + comissaoVendedor) + ")");
                 for (Venda venda : v.getVendas()) {
+                    System.out.println("Vendedor: " + v.getNome());// + " (Salário neste ano: R$" + (v.salario * 12 + comissaoVendedor) + ")");
                     if (venda.getData().getAno() == ano) {
                         System.out.println(venda);
                         System.out.println("***************************************");
@@ -238,7 +238,7 @@ public class Sistema {
     }
 
     public void relatorio (Vendedor vendedor) {//historicoVendedor (Vendedor vendedor) {
-        System.out.println("RELATÓRIO DE VENDAS DO VENDEDOR");
+        System.out.println("RELATÓRIO DE VENDAS DO VENDEDOR:");
         System.out.println("Vendas do vendedor " + vendedor.getNome() + " :");
         double totalVendas = 0.0;
         for (Venda venda : vendedor.getVendas()) {

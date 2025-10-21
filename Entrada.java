@@ -85,7 +85,7 @@ public class Entrada {
 
         int op = this.lerInteiro(msg);
 
-        while (op < 0 || op > 11) {
+        while (op < 0 || op > 8) {
             System.out.println("Opção inválida. Tente novamente: ");
             op = this.lerInteiro(msg);
         }
@@ -105,22 +105,23 @@ public class Entrada {
 ***************************************************/
 
     public void cadCliente(Sistema s) {
-        s.listarClientes();
+        //s.listarClientes();
 
         String nome = this.lerLinha("Digite o nome do cliente: ");
-        System.out.println("=> " + nome);
         String cpf = this.lerLinha("Digite o cpf do cliente: ");
-        System.out.println("=> " + cpf);
         int dia = this.lerInteiro("Digite o dia do nascimento do cliente: ");
-        System.out.println("=> " + dia);
         int mes = this.lerInteiro("Digite o mês do nascimento do cliente: ");
         System.out.println("=> " + mes);
         int ano = this.lerInteiro("Digite o ano do nascimento do cliente: ");
         System.out.println("=> " + ano);
+        if ((dia <= 0 || dia > 31) || (mes <= 0 || mes > 12) || ano <= 0){
+            System.out.println("Data invalida. Cliente nao adicionado.");
+            return;
+        }
         String email = this.lerLinha("Digite o email do cliente: ");
         System.out.println("=> " + email);
 
-        if (s.localizarCliente(cpf) == null) { // Garantindo que o não CPF esteja duplicado.
+        if (s.localizarCliente(cpf) == null) {
             Cliente c = new Cliente(nome, cpf, dia, mes, ano, email);
             s.adicionar(c);
         }
@@ -130,7 +131,7 @@ public class Entrada {
     }
 
     public void cadVendedor (Sistema s) {
-        s.listarVendedores();
+        //s.listarVendedores();
 
         String nome = this.lerLinha("Digite o nome do vendedor: ");
         System.out.println("=> " + nome);
@@ -142,15 +143,27 @@ public class Entrada {
         System.out.println("=> " + mes);
         int ano = this.lerInteiro("Digite o ano do nascimento do vendedor: ");
         System.out.println("=> " + ano);
+        if ((dia <= 0 || dia > 31) || (mes <= 0 || mes > 12) || ano <= 0){
+            System.out.println("Data invalida. Vendedor nao adicionado.");
+            return;
+        }
         int salario = this.lerInteiro("Digite o salário mensal fixo do vendedor: ");
         System.out.println("=> " + salario);
+        if (salario < 0){
+            System.out.println("Salario inválido. Vendedor nao adicionado.");
+            return;
+        }
         double comissao = this.lerDouble("Digite o percentual de comissão deste vendedor: ");
         System.out.println("=> " + comissao);
+        if (comissao < 0){
+            System.out.println("Valor inválido. Vendedor nao adicionado.");
+            return;
+        }
 
-        if (s.localizarVendedor(cpf) == null) { // Garantindo que o não CPF esteja duplicado.
+        if (s.localizarVendedor(cpf) == null) {
             Vendedor c = new Vendedor(nome, cpf, dia, mes, ano, salario, comissao); // CHECAAAARRRR
             s.adicionar(c); // CHECARRRRR
-            s.listarVendedores(); System.out.println("okok add :D");
+            //s.listarVendedores();
         }
         else {
             System.out.println("Erro: CPF duplicado. Vendedor não adicionado.");
@@ -158,7 +171,7 @@ public class Entrada {
     }
     
     public void cadGerente (Sistema s) {
-        s.listarGerentes();
+        //s.listarGerentes();
 
         String nome = this.lerLinha("Digite o nome do gerente: ");
         System.out.println("=> " + nome);
@@ -170,8 +183,16 @@ public class Entrada {
         System.out.println("=> " + mes);
         int ano = this.lerInteiro("Digite o ano do nascimento do gerente: ");
         System.out.println("=> " + ano);
+        if ((dia <= 0 || dia > 31) || (mes <= 0 || mes > 12) || ano <= 0){
+            System.out.println("Data invalida. Gerente nao adicionado.");
+            return;
+        }
         int salario = this.lerInteiro("Digite o salário mensal fixo do gerente: ");
         System.out.println("=> " + salario);
+        if (salario < 0){
+            System.out.println("Salario inválido. Gerente nao adicionado.");
+            return;
+        }
         String senha = this.lerLinha("Digite a senha do gerente: ");
         System.out.println("=> " + senha);
 
@@ -185,7 +206,7 @@ public class Entrada {
     }
 
     public void cadVeiculo (Sistema s) {
-        s.listarVeiculos();
+        //s.listarVeiculos();
 
         String marca = this.lerLinha("Digite a marca do veículo: ");
         System.out.println("=> " + marca);
@@ -197,8 +218,16 @@ public class Entrada {
         System.out.println("=> " + mesFab);
         int anoMod = this.lerInteiro("Digite o ano do modelo do veículo: ");
         System.out.println("=> " + anoMod);
+        if (anoMod < 0){
+            System.out.println("Ano inválido. Veículo nao adicionado");
+            return;
+        }
         int valor = this.lerInteiro("Digite o valor do veículo: ");
         System.out.println("=> " + valor);
+        if (valor < 0){
+            System.out.println("Valor inválido. Veículo nao adicionado.");
+            return;
+        }
         int tipo = this.lerInteiro("Escolha o tipo do veículo: \n1) Elétrico \n2) Combustão \n3) Híbrido:");
         System.out.println("=> " + tipo);
         while (!(tipo == 0 || tipo == 1 || tipo == 2 || tipo == 3)) {
@@ -212,28 +241,52 @@ public class Entrada {
         if (tipo == 1) {
             int autonBateria = this.lerInteiro("Digite a autonomia da bateria (em km): ");
             System.out.println("=> " + autonBateria);
+            if (autonBateria < 0){
+                System.out.println("Valor inválido. Veículo nao cadastrado");
+            }
             int capBateria = this.lerInteiro("Digite a capacidade da Bateria (em kwH): ");
             System.out.println("=> " + capBateria);
+            if (capBateria < 0){
+                System.out.println("Valor inválido. Veículo nao cadastrado");
+            }
             Eletrico c = new Eletrico(marca, modelo, anoFab, mesFab, anoMod, valor, autonBateria, capBateria); // CHECAAAARRRR
             s.adicionar(c);
         }
         if (tipo == 2) {
             int autonMotor = this.lerInteiro("Digite a autonomia do motor (em km): ");
             System.out.println("=> " + autonMotor);
+            if (autonMotor < 0){
+                System.out.println("Valor inválido. Veículo nao cadastrado");
+            }
             int capMotor = this.lerInteiro("Digite a capacidade do motor (em L): ");
             System.out.println("=> " + capMotor);
+            if (capMotor < 0){
+                System.out.println("Valor inválido. Veículo nao cadastrado");
+            }
             Combustao c = new Combustao(marca, modelo, anoFab, mesFab, anoMod, valor, autonMotor, capMotor); // CHECAAAARRRR
             s.adicionar(c);
         }
         if (tipo == 3) {
             int autonMotor = this.lerInteiro("Digite a autonomia do motor (em km): ");
             System.out.println("=> " + autonMotor);
+            if (autonMotor < 0){
+                System.out.println("Valor inválido. Veículo nao cadastrado");
+            }
             int capMotor = this.lerInteiro("Digite a capacidade do motor (em L): ");
             System.out.println("=> " + capMotor);
+            if (capMotor < 0){
+                System.out.println("Valor inválido. Veículo nao cadastrado");
+            }
             int autonBateria = this.lerInteiro("Digite a autonomia da bateria (em km): ");
             System.out.println("=> " + autonBateria);
+            if (autonBateria < 0){
+                System.out.println("Valor inválido. Veículo nao cadastrado");
+            }
             int capBateria = this.lerInteiro("Digite a capacidade da Bateria (em kwH): ");
             System.out.println("=> " + capBateria);
+            if (capBateria < 0){
+                System.out.println("Valor inválido. Veículo nao cadastrado");
+            }
             Hibrido c = new Hibrido(marca, modelo, anoFab, mesFab, anoMod, valor, autonMotor, capMotor, autonBateria, capBateria); // CHECAAAARRRR
             s.adicionar(c);
         }
@@ -241,16 +294,17 @@ public class Entrada {
 
     public void cadVenda (Sistema s) {
         s.listarVendedores();
-        String cpfVendedor = this.lerLinha("Digite o CPF do vendedor: ");
+        String cpfVendedor = this.lerLinha("\nDigite o CPF do vendedor: ");
         System.out.println("=> " + cpfVendedor);
         Vendedor v = s.localizarVendedor(cpfVendedor);
         if (v == null) {
             System.out.println("Erro: Vendedor não encontrado. Venda não cadastrada.");
             return;
         }
-        
+
+        System.out.println();
         s.listarVeiculos();
-        int numVeiculo = this.lerInteiro("Escolha um veículo pelo número: ");
+        int numVeiculo = this.lerInteiro("\nEscolha um veículo pelo número: ");
         System.out.println("=> " + numVeiculo);
         if (numVeiculo <= 0 || numVeiculo > s.getVeiculos().size()){
             System.out.println("Erro: Número inválido. Não foi possível selecionar um veículo.");
@@ -262,16 +316,17 @@ public class Entrada {
             return;
         }
 
+        System.out.println();
         s.listarClientes();
-        String cpfCliente = this.lerLinha("Digite o CPF do cliente: ");
+        String cpfCliente = this.lerLinha("\nDigite o CPF do cliente: ");
         System.out.println("=> " + cpfCliente);
         Cliente c = s.localizarCliente(cpfCliente);
         if (c == null) {
             System.out.println("Erro: Cliente não encontrado. Venda não cadastrada.");
             return;
         }
-        
-                double desconto = this.lerDouble("Digite o desconto (em R$): ");
+
+        double desconto = this.lerDouble("\nDigite o desconto (em R$): ");
         System.out.println("=> " + desconto);
         int diaVenda = this.lerInteiro("Digite o dia da venda: ");
         System.out.println("=> " + diaVenda);
@@ -279,6 +334,10 @@ public class Entrada {
         System.out.println("=> " + mesVenda);
         int anoVenda = this.lerInteiro("Digite o ano da venda: ");
         System.out.println("=> " + anoVenda);
+        if ((diaVenda <= 0 || diaVenda > 31) || (mesVenda <= 0 || mesVenda > 12) || anoVenda <= 0){
+            System.out.println("Data invalida. Venda nao adicionada.");
+            return;
+        }
         String chassi = this.lerLinha("Digite o chassi do veículo: ");
         System.out.println("=> " + chassi);
         
@@ -323,6 +382,10 @@ public class Entrada {
         System.out.println("=> " + mes);
         int ano = this.lerInteiro("Digite o ano desejado: ");
         System.out.println("=> " + ano);
+        if ((mes <= 0 || mes > 12) || ano <= 0){
+            System.out.println("Data invalida.");
+            return;
+        }
         System.out.println();
         s.relatorio(mes, ano);
     }
@@ -330,6 +393,10 @@ public class Entrada {
     public void relatorioAnual (Sistema s) {
         int ano = this.lerInteiro("Digite o ano desejado: ");
         System.out.println("=> " + ano);
+        if (ano <= 0){
+            System.out.println("Ano invalido.");
+            return;
+        }
         System.out.println();
         s.relatorio(ano);
     }
