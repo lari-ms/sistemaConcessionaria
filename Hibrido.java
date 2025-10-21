@@ -17,6 +17,6 @@ public class Hibrido extends Veiculo {
     }
 
     public String toString() { // BYD Song Pro 2025/2026 - Autonomia: 1110.0km (Híbrido)
-        return super.toString() + "(Híbrido)"; //super.marca + super.modelo + super.anoMod + "/" + super.anoFab + " - Autonomia: " + (this.autonomiaComb + this.autonomiaBat) + ".0km (Híbrido)"; 
+        return super.toString() + " (Híbrido)"; //super.marca + super.modelo + super.anoMod + "/" + super.anoFab + " - Autonomia: " + (this.autonomiaComb + this.autonomiaBat) + ".0km (Híbrido)"; 
     }
 }

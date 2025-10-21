@@ -58,7 +58,6 @@ public class Main {
             System.out.print(">>> ");
             System.out.println(op);
             System.out.println();
-        
         }
     }
 }

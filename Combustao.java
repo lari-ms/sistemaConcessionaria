@@ -13,6 +13,6 @@ public class Combustao extends Veiculo {
     }
 
     public String toString() { //Honda HRV 2015/2016 - Autonomia: 400.0km
-        return super.toString() + "Combustão";//super.marca + super.modelo + super.anoMod + "/" + super.anoFab + " - Autonomia: " + this.autonomiaComb + ".0km (Combustão)";
+        return super.toString() + " (Combustão)";//super.marca + super.modelo + super.anoMod + "/" + super.anoFab + " - Autonomia: " + this.autonomiaComb + ".0km (Combustão)";
     }
 }

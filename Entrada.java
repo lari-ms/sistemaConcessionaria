@@ -339,14 +339,14 @@ public class Entrada {
         System.out.println("=> " + mes);
         int ano = this.lerInteiro("Digite o ano desejado: ");
         System.out.println("=> " + ano);
-
+        System.out.println();
         s.relatorio(mes, ano);
     }
 
     public void relatorioAnual (Sistema s) {
         int ano = this.lerInteiro("Digite o ano desejado: ");
         System.out.println("=> " + ano);
-
+        System.out.println();
         s.relatorio(ano);
     }
 
@@ -359,7 +359,7 @@ public class Entrada {
             System.out.println("Erro: Vendedor não encontrado.");
             return;
         }
-
+        System.out.println();
         s.relatorio(v);
     }
 
