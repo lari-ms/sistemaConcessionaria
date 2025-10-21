@@ -53,9 +53,12 @@ public class Main {
 
             
             }
+            System.out.println(" \n");
             op = io.menu();
-            System.out.println(">>>");
-            System.out.println("opcao escolhida: "+op);
+            System.out.print(">>> ");
+            System.out.println(op);
+            System.out.println();
+        
         }
     }
 }

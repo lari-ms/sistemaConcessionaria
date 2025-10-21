@@ -21,4 +21,7 @@ public class Data {
         return ano;
     }
 
+    public String toString(){
+        return this.dia + "/" + this.mes + "/" + this.ano;
+    }
 }

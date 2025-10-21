@@ -39,6 +39,10 @@ public class Venda {
         return this.desconto;
     }
 
+    public String getChassi(){
+        return this.chassi;
+    }
+
     public Veiculo getVeiculo() { //nao tenho certeza se é necessario, mas acho q s ?
         return this.veiculo;
     }
