@@ -168,14 +168,14 @@ public class Sistema {
         return null;
     }
 
-    public Veiculo localizarVeiculo(String marca, String modelo) {
-        for (Veiculo v : this.veiculos) {
-            if (v.marca.equals(marca) && v.modelo.equals(modelo)) {
-                return v;
-            }
-        }
-        return null;
-    }
+    // public Veiculo localizarVeiculo(String marca, String modelo) {
+    //     for (Veiculo v : this.veiculos) {
+    //         if (v.marca.equals(marca) && v.modelo.equals(modelo)) {
+    //             return v;
+    //         }
+    //     }
+    //     return null;
+    // }
 
 /**************************************************
     * VENDAS - VENDAS - VENDAS - VENDAS *
