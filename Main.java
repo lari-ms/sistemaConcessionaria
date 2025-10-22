@@ -55,8 +55,6 @@ public class Main {
             }
             System.out.println(" \n");
             op = io.menu();
-            System.out.print(">>> ");
-            System.out.println(op);
             System.out.println();
         }
     }
