@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -68,9 +69,10 @@ public class Entrada {
      * Imprime o menu principal, lê a opção escolhida pelo usuário e retorna a opção selecionada.
      * @return Inteiro contendo a opção escolhida pelo usuário
      */
-    public int menu() {
-        // Imprime o menu principal, lê a opção escolhida pelo usuário e retorna a opção selecionada.
+    public int menu()
+        throws InputMismatchException, IllegalArgumentException{
 
+        // Imprime o menu principal, lê a opção escolhida pelo usuário e retorna a opção selecionada.
         String msg = "*********************\n" +
                 "Escolha uma opção:\n" +
                 "1) Cadastrar Cliente\n" +
@@ -80,15 +82,16 @@ public class Entrada {
                 "5) Cadastrar Venda\n" +
                 "6) Histórico de Vendas Mensal\n" +
                 "7) Histórico de Vendas Anual\n" +
-                "8) Histórico de Vendas do Vendedor:\n" +
+                "8) Histórico de Vendas do Vendedor\n" +
                 "0) Sair\n";
 
         int op = this.lerInteiro(msg);
 
-        while (op < 0 || op > 8) {
-            System.out.println("Opção inválida. Tente novamente: ");
-            op = this.lerInteiro(msg);
-        }
+        if (op < 0 || op > 8) {
+            throw new IllegalArgumentException("Opção inválida. Tente novamente.")
+            //System.out.println("Opção inválida. Tente novamente: ");
+            //op = this.lerInteiro(msg);
+        } else if ()
 
         return op;
     }

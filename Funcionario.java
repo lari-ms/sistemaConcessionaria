@@ -1,4 +1,4 @@
-public class Funcionario extends Pessoa {
+public abstract class Funcionario extends Pessoa {
     protected double salario;
     
     public Funcionario(String nome, String cpf, int dia, int mes, int ano, double salario){

@@ -22,30 +22,30 @@ public class Main {
 
         while (op != 0) {
             switch(op) {
-                case 0:
+                case 0: //Sair
                     break;
-                case 1:
+                case 1: //Cadastrar Cliente
                     io.cadCliente(s);
                     break;
-                case 2:
+                case 2: //Cadastrar Vendedor
                     io.cadVendedor(s);
                     break;
-                case 3:
+                case 3: //Cadastrar Gerente
                     io.cadGerente(s);
                     break;
-                case 4:
+                case 4: //Cadastrar Veículo
                     io.cadVeiculo(s);
                     break;
-                case 5:
+                case 5: //Cadastrar Venda
                     io.cadVenda(s);
                     break;
-                case 6:
+                case 6: //Relatorio mensal
                     io.relatorioMensal(s);
                     break;
-                case 7:
+                case 7: //Relatorio anual
                     io.relatorioAnual(s);
                     break;
-                case 8:
+                case 8: //Relatorio por vendedor
                     io.relatorioVendedor(s);
                     break;
                 default:

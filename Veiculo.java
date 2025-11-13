@@ -1,4 +1,4 @@
-public class Veiculo {
+public abstract class Veiculo {
     protected String marca;
     protected String modelo;
     protected int anoFab;
@@ -15,9 +15,7 @@ public class Veiculo {
         this.valor = valor;
     }
 
-    public int getAutonomia () {
-        return 0;
-    }
+    public abstract int getAutonomia();
 
     public String getMarca() {
         return marca;
