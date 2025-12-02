@@ -12,6 +12,22 @@ public class Hibrido extends Veiculo {
         this.capacidadeBat = capBat;
     }
 
+    public double getAutonomiaComb() {
+        return autonomiaComb;
+    }
+
+    public double getCapacidadeComb() {
+        return capacidadeComb;
+    }
+
+    public double getAutonomiaBat() {
+        return autonomiaBat;
+    }
+
+    public double getCapacidadeBat() {
+        return capacidadeBat;
+    }
+
     public int getAutonomia() {
         return (int) (autonomiaComb + autonomiaBat); // !!! Não sei se ele quer aproximado
     }

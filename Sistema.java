@@ -1,4 +1,10 @@
+import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.*;
 
 public class Sistema {
     private ArrayList<Cliente> clientes;
@@ -248,4 +254,65 @@ public class Sistema {
         }
         System.out.println("Total: R$" + totalVendas);
     }
+
+    public List<Venda> todasVendas() {
+    List<Venda> lista = new ArrayList<>();
+    for (Vendedor v : this.vendedores) {
+        for (Venda venda : v.getVendas()) {
+            // Garanta que venda tenha referencia ao vendedor se necessário:
+            try {
+                venda.getClass().getMethod("setVendedor", Vendedor.class).invoke(venda, v);
+            } catch (Exception e) {
+                // se Venda não tem setVendedor, OK — usaremos o vendedor no comparator via laço externo
+            }
+            lista.add(venda);
+        }
+    }
+    return lista;
+}
+
+/**
+ * Relatório anual seguindo os 4 critérios:
+ * 1) nome do vendedor (alfabética)
+ * 2) valor da venda (maior -> menor)
+ * 3) data (mais recente -> mais antiga)
+ * 4) cpf do comprador
+ *
+ * Observação: se Venda não contém referência direta ao vendedor, construimos pares temporários.
+ */
+public void relatorioAnualOrdenado(int ano) {
+    System.out.println("RELATÓRIO DE VENDAS ANUAL DE " + ano + ":");
+    // construir lista de pares (Vendedor, Venda)
+    List<Map.Entry<Vendedor, Venda>> pares = new ArrayList<>();
+    for (Vendedor v : this.vendedores) {
+        for (Venda venda : v.getVendas()) {
+            if (venda.getData().getAno() == ano) {
+                pares.add(new AbstractMap.SimpleEntry<>(v, venda));
+            }
+        }
+    }
+
+    Comparator<Map.Entry<Vendedor, Venda>> comp = Comparator
+        .comparing((Map.Entry<Vendedor, Venda> e) -> e.getKey().getNome(), String.CASE_INSENSITIVE_ORDER)
+        .thenComparing(e -> e.getValue().valor(), Comparator.reverseOrder())
+        .thenComparing(e -> {
+            Data d = e.getValue().getData();
+            // traduz data para inteiro YYYYMMDD para comparação simples
+            return d.getAno() * 10000 + d.getMes() * 100 + d.getDia();
+        }, Comparator.reverseOrder())
+        .thenComparing(e -> e.getValue().getCliente().getCpf());
+
+    Collections.sort(pares, comp);
+
+    double total = 0.0;
+    for (Map.Entry<Vendedor, Venda> entry : pares) {
+        Vendedor v = entry.getKey();
+        Venda vend = entry.getValue();
+        System.out.println("Vendedor: " + v.getNome());
+        System.out.println(vend);
+        System.out.println("***************************************");
+        total += vend.valor();
+    }
+    System.out.println("Total: R$" + total);
+}
 }

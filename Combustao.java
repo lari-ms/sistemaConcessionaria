@@ -12,6 +12,10 @@ public class Combustao extends Veiculo {
         return (int) autonomiaComb; 
     }
 
+    public double getCapacidade() {
+        return capacidadeComb;
+    }
+
     public String toString() {
         return super.toString() + " (Combustão)";
     }

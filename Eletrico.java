@@ -12,6 +12,10 @@ public class Eletrico extends Veiculo {
         return (int) autonomiaBat;
     }
 
+    public double getCapacidade() {
+        return capacidadeBat;
+    }
+
     public String toString() {
         return super.toString() + " (Elétrico)";
     }

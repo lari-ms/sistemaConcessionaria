@@ -6,6 +6,10 @@ public class Gerente extends Funcionario{
         this.senha = senha;
     }
 
+    public String getSenha() {
+        return this.senha;
+    }
+
     public boolean validarAcesso (String senha) {
         return (this.senha.equals(senha));
     }

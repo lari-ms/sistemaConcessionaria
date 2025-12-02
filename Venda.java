@@ -21,6 +21,10 @@ public class Venda {
         return this.veiculo.valor - this.desconto;
     }
 
+    public Cliente getCliente() {
+        return this.cliente;
+    }
+
     public void setDesconto(double desconto, Gerente gerente, String senha) {
         if (gerente.validarAcesso(senha)) {
             this.desconto = desconto;

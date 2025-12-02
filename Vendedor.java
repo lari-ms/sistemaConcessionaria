@@ -10,6 +10,10 @@ public class Vendedor extends Funcionario{
         this.vendidos = new ArrayList<Venda>(); // Lista de vendas
     }
 
+    public double getComissao() {
+        return this.comissao;
+    }
+
     public void addVenda(Venda v) {
         vendidos.add(v);
     }

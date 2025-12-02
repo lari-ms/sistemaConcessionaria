@@ -88,10 +88,10 @@ public class Entrada {
         int op = this.lerInteiro(msg);
 
         if (op < 0 || op > 8) {
-            throw new IllegalArgumentException("Opção inválida. Tente novamente.")
+            throw new IllegalArgumentException("Opção inválida. Tente novamente.");
             //System.out.println("Opção inválida. Tente novamente: ");
             //op = this.lerInteiro(msg);
-        } else if ()
+        } // else if ()
 
         return op;
     }
