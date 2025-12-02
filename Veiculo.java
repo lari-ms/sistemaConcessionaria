@@ -1,4 +1,4 @@
-public abstract class Veiculo {
+public abstract class Veiculo implements Registravel {
     protected String marca;
     protected String modelo;
     protected int anoFab;
@@ -15,7 +15,7 @@ public abstract class Veiculo {
         this.valor = valor;
     }
 
-    public abstract int getAutonomia();
+    public abstract int getAutonomia(); //metodo abstrato pq cada classe calcula a autonomia de um jeito?
 
     public String getMarca() {
         return marca;

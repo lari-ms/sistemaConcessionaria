@@ -41,4 +41,12 @@ public class Vendedor extends Funcionario{
     public double getSalario (int mes, int ano) {
         return this.salario + this.comissaoTotal(mes, ano);
     }
+
+    //n sei se faz mt sentido deixar o filewriter dentro do metodo e criar um novo toda vez q chamar a funcao, mas vou deixar assim por enquanto
+    public void salvar(String filename){
+        FileWriter fw = new FileWriter(filename, true);
+        fw.write(this.nome+","+this.cpf+","+this.nasc+","+this.salario+","+this.comissao + "\n");
+        fw.close();
+
+    }
 }

@@ -1,4 +1,4 @@
-public abstract class Pessoa {
+public abstract class Pessoa implements Registravel{
     protected String nome;
     protected String cpf;
     protected Data nasc;
@@ -31,6 +31,7 @@ public abstract class Pessoa {
     }
         
     public String toString() {
-            return this.nome + " - " +"CPF: " + this.cpf;
-    }
+        return this.nome + " - " +"CPF: " + this.cpf;    }
+
+    public void abstract salvar(String filename);
 }
